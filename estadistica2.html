@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparación de Productos Tecnológicos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: #b2b4b0;
+        }
+        .logo {
+            height: 60px;
+            margin: 0 150px;
+            border-radius: 50%; 
+           
+               
+        }
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+    </style>
+    </head>
+    <body>
+    
+    <!-- Encabezado -->
+    <header>
+    <img src="IMG6.jpg" alt="Logo 1" class="logo">
+    <div class="company-name">Evaluación de un producto tecnológico</div>
+    <img src="IMG6.jpg" alt="Logo 2" class="logo">
+    </header>
+    
+     <!-- Carrusel con Bootstrap -->
+     <div id="carouselExample" class="carousel slide mt-6" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagenes/img17.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Primera Imagen">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Primer Slide</h5>
+            <p>Descripción de la primera imagen.</p>
+          </div>
+        </div>
+        
+        
+      </div>
+      
+    </div>
+    
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Menú Principal</a>
+          <a ><nav class="nav nav-pills justify-content-center mt-4"  id="menuItems"></nav></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              
+          </div>
+      </div>
+  </nav>
+  <div class="container mt-3">
+    <!-- Selector de idioma -->
+    <div class="d-flex justify-content-end">
+      
+      <label for="languageSelect" class="me-2">Idioma:</label>
+      <select id="languageSelect" class="form-select form-select-sm w-auto">
+        <option value="es" selected>Español</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
+    <!-- Menú Horizontal -->
+   
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    async function loadMenu(menuId, language) {
+      const response = await fetch('menu.json');
+      const data = await response.json();
+      const menuItems = document.getElementById('menuItems');
+      menuItems.innerHTML = '';
+      data.menus[menuId][language].forEach(item => {
+        const a = document.createElement('a');
+        a.className = 'nav-link';
+        a.href = item.link;
+        a.textContent = item.text;
+        menuItems.appendChild(a);
+      });
+    }
+
+    document.getElementById('languageSelect').addEventListener('change', (event) => {
+      loadMenu('menu3', event.target.value);
+    });
+
+    loadMenu('menu3', 'es');
+  </script>
+
+
+
+  <div class="container mt-5">
+    <h1 class="text-center">Comparación de Productos Tecnológicos</h1>
+
+    <!-- Formulario para el producto principal -->
+    <h2 class="mt-4">Producto Principal</h2>
+    <form id="mainProductForm" class="my-3">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="mainProductName" class="form-label">Nombre del Producto</label>
+          <input type="text" id="mainProductName" class="form-control" placeholder="Nombre del producto" required>
+        </div>
+        <div class="col-md-4">
+          <label for="mainProductPrice" class="form-label">Precio</label>
+          <input type="number" id="mainProductPrice" class="form-control" placeholder="Precio" required>
+        </div>
+        <div class="col-md-4">
+          <label for="mainProductQuality" class="form-label">Calidad (1-5)</label>
+          <input type="number" id="mainProductQuality" class="form-control" min="1" max="5" placeholder="Calidad" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="mainProductDesign" class="form-label">Diseño (1-5)</label>
+          <input type="number" id="mainProductDesign" class="form-control" min="1" max="5" placeholder="Diseño" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Guardar Producto Principal</button>
+    </form>
+
+    <!-- Formulario para otros productos -->
+    <h2 class="mt-4">Otros Productos</h2>
+    <form id="otherProductForm" class="my-3">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="otherProductName" class="form-label">Nombre del Producto</label>
+          <input type="text" id="otherProductName" class="form-control" placeholder="Nombre del producto" required>
+        </div>
+        <div class="col-md-4">
+          <label for="otherProductPrice" class="form-label">Precio</label>
+          <input type="number" id="otherProductPrice" class="form-control" placeholder="Precio" required>
+        </div>
+        <div class="col-md-4">
+          <label for="otherProductQuality" class="form-label">Calidad (1-5)</label>
+          <input type="number" id="otherProductQuality" class="form-control" min="1" max="5" placeholder="Calidad" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="otherProductDesign" class="form-label">Diseño (1-5)</label>
+          <input type="number" id="otherProductDesign" class="form-control" min="1" max="5" placeholder="Diseño" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success mt-3">Agregar Producto</button>
+    </form>
+
+    <!-- Tabla de productos -->
+    <h2 class="mt-5">Productos</h2>
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Calidad</th>
+          <th>Diseño</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody"></tbody>
+    </table>
+
+    <!-- Botón para abrir el modal -->
+    <button class="btn btn-info mt-3" data-bs-toggle="modal" data-bs-target="#comparisonModal">Mostrar Comparación</button>
+
+    <!-- Modal para la comparación -->
+    <div class="modal fade" id="comparisonModal" tabindex="-1" aria-labelledby="comparisonModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="comparisonModalLabel">Comparación de Productos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Precio (%)</th>
+                  <th>Calidad (%)</th>
+                  <th>Diseño (%)</th>
+                </tr>
+              </thead>
+              <tbody id="comparisonTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let mainProduct = null; // Producto principal
+    let otherProducts = []; // Lista de otros productos
+
+    const mainProductForm = document.getElementById("mainProductForm");
+    const otherProductForm = document.getElementById("otherProductForm");
+    const productTableBody = document.getElementById("productTableBody");
+    const comparisonTableBody = document.getElementById("comparisonTableBody");
+
+    // Guardar producto principal
+    mainProductForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("mainProductName").value;
+      const price = parseFloat(document.getElementById("mainProductPrice").value);
+      const quality = parseFloat(document.getElementById("mainProductQuality").value);
+      const design = parseFloat(document.getElementById("mainProductDesign").value);
+
+      mainProduct = { name, price, quality, design };
+      updateProductTable();
+      mainProductForm.reset();
+    });
+
+    // Agregar otros productos
+    otherProductForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("otherProductName").value;
+      const price = parseFloat(document.getElementById("otherProductPrice").value);
+      const quality = parseFloat(document.getElementById("otherProductQuality").value);
+      const design = parseFloat(document.getElementById("otherProductDesign").value);
+
+      otherProducts.push({ name, price, quality, design });
+      updateProductTable();
+      otherProductForm.reset();
+    });
+
+    // Calcular diferencia porcentual
+    function calculatePercentageDifference(mainValue, otherValue) {
+      if (!mainValue) return "-";
+      const difference = ((otherValue - mainValue) / mainValue) * 100;
+      return difference.toFixed(2);
+    }
+
+    // Actualizar la tabla de productos
+    function updateProductTable() {
+      productTableBody.innerHTML = "";
+
+      if (!mainProduct) {
+        productTableBody.innerHTML = `<tr><td colspan="6" class="text-center">Por favor, agrega el producto principal.</td></tr>`;
+        return;
+      }
+
+      // Mostrar el producto principal
+      const mainRow = document.createElement("tr");
+      mainRow.innerHTML = `
+        <td>1</td>
+        <td>${mainProduct.name} (Principal)</td>
+        <td>${mainProduct.price}</td>
+        <td>${mainProduct.quality}</td>
+        <td>${mainProduct.design}</td>
+        <td>-</td>
+      `;
+      productTableBody.appendChild(mainRow);
+
+      // Mostrar otros productos
+      otherProducts.forEach((product, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 2}</td>
+          <td>${product.name}</td>
+          <td>${product.price}</td>
+          <td>${product.quality}</td>
+          <td>${product.design}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">Eliminar</button>
+          </td>
+        `;
+        productTableBody.appendChild(row);
+      });
+
+      updateComparisonTable();
+    }
+
+    // Actualizar la tabla de comparación
+    function updateComparisonTable() {
+      comparisonTableBody.innerHTML = "";
+
+      if (!mainProduct) return;
+
+      otherProducts.forEach((product, index) => {
+        const comparisonRow = document.createElement("tr");
+        comparisonRow.innerHTML = `
+          <td>${index + 2}</td>
+          <td>${product.name}</td>
+          <td>${calculatePercentageDifference(mainProduct.price, product.price)}%</td>
+          <td>${calculatePercentageDifference(mainProduct.quality, product.quality)}%</td>
+          <td>${calculatePercentageDifference(mainProduct.design, product.design)}%</td>
+        `;
+        comparisonTableBody.appendChild(comparisonRow);
+      });
+    }
+
+    // Eliminar producto
+    function deleteProduct(index) {
+      otherProducts.splice(index, 1);
+      updateProductTable();
+    }
+  </script>
+
+  <!-- Pie de página -->
+<footer class="bg-dark text-white mt-5 py-4">
+  <div class="container">
+      <div class="row">
+          <!-- Información de la empresa -->
+          <div class="col-md-6">
+              <h5>Sobre Nosotros</h5>
+              <p>
+                  Somos una empresa dedicada a ofrecer productos innovadores y de alta calidad. 
+                  Nuestra misión es mejorar la vida de nuestros clientes con soluciones prácticas y accesibles.
+              </p>
+          </div>
+
+          <!-- Enlaces a Redes Sociales con Iconos -->
+          <div class="col-md-6">
+              <h5>Redes Sociales</h5>
+              <ul class="list-unstyled d-flex">
+                  <li class="me-3">
+                      <a href="https://facebook.com" class="text-white" target="_blank">
+                          <i class="bi bi-facebook" style="font-size: 2rem;"></i>
+                          Facebook
+                      </a>
+                  </li>
+                  <li class="me-3">
+                      <a href="https://twitter.com" class="text-white" target="_blank">
+                          <i class="bi bi-twitter" style="font-size: 2rem;"></i>
+                          Twitter
+                      </a>
+                  </li>
+                  <li class="me-3">
+                      <a href="https://instagram.com" class="text-white" target="_blank">
+                          <i class="bi bi-instagram" style="font-size: 2rem;"></i>
+                          Instagram
+                      </a>
+                  </li>
+                 <li class="me-3">
+                   <a href="https://youtube.com" class="text-white" target="_blank">
+                      <i class="bi bi-youtube" style="font-size: 2rem;"></i>
+                      YouTube
+                  </a>
+              </li>
+              </ul>
+          </div>
+      </div>
+
+      <!-- Información adicional -->
+      <div class="row">
+          <div class="col-12 text-center mt-4">
+              <p>&copy; 2025 Empresa XYZ. Todos los derechos reservados.</p>
+              <p><a href="privacy-policy.html" class="text-white">Política de privacidad</a> | <a href="terms-of-service.html" class="text-white">Términos de servicio</a></p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

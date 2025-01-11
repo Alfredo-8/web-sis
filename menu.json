@@ -1,0 +1,116 @@
+{
+    "menus": {
+      "menu1": {
+        "es": [
+          { "text": "Información sobre el producto", "link": "inicio1.html" },
+          { "text": "Beneficios de evaluar productos tecnológicos", "link": "inicio2.html" },
+          { "text": "Instrucciones para participar", "link": "inicio3.html" },
+          { "text": "Preguntas frecuentes", "link": "inicio4.html" }
+        ],
+        "en": [
+          { "text": "Product Information", "link": "inicio1.html" },
+          { "text": "Benefits of Evaluating Products", "link": "inicio2.html" },
+          { "text": "Participation Instructions", "link": "inicio3.html" },
+          { "text": "Frequently Asked Questions", "link": "inicio4.html" }
+        ]
+      },
+      "menu2": {
+        "es": [
+          { "text": "Calificación de características", "link": "formulario1.html" },
+          { "text": "Sección de comentarios", "link": "formulario2.html" },
+          { "text": "Subir fotos o videos", "link": "formulario3.html" },
+          { "text": "Confirmación de evaluación", "link": "formulario4.html" }
+        ],
+        "en": [
+          { "text": "Rating Features", "link": "formulario1.html" },
+          { "text": "Comments Section", "link": "formulario2.html" },
+          { "text": "Upload Photos or Videos", "link": "formulario3.html" },
+          { "text": "Evaluation Confirmation", "link": "formulario4.html" }
+        ]
+      },
+      "menu3": {
+      "es": [
+        { "text": "Promedio de las valoraciones", "link": "estadistica1.html" },
+        { "text": "Comparación con otros productos", "link": "estadistica2.html" },
+        { "text": "Gráficos y visualizaciones", "link": "estadistica3.html" },
+        { "text": "Recomendaciones basadas en datos", "link": "estadistica4.html" }
+      ],
+      "en": [
+        { "text": "Average Ratings", "link": "estadistica1.html" },
+        { "text": "Comparison with Other Products", "link": "estadistica2.html" },
+        { "text": "Charts and Visualizations", "link": "estadistica3.html" },
+        { "text": "Data-Based Recommendations", "link": "estadistica4.html" }
+      ]
+    },
+    "menu4": {
+      "es": [
+        { "text": "Guías para usar el producto", "link": "recursos1.html" },
+        { "text": "Tutoriales de características avanzadas", "link": "recursos2.html" },
+        { "text": "Consejos de mantenimiento", "link": "recursos3.html" },
+        { "text": "Comparativa con productos similares", "link": "recursos4.html" }
+      ],
+      "en": [
+        { "text": "Product Usage Guides", "link": "recursos1.html" },
+        { "text": "Advanced Feature Tutorials", "link": "recursos2.html" },
+        { "text": "Maintenance Tips", "link": "recursos3.html" },
+        { "text": "Product Comparisons", "link": "recursos4.html" }
+      ]
+    },
+    "menu5": {
+      "es": [
+        { "text": "Opiniones de otros usuarios", "link": "testimonios1.html" },
+        { "text": "Casos de uso específicos", "link": "testimonios2.html" },
+        { "text": "Videos de demostración", "link": "testimonios3.html" },
+        { "text": "Historial de actualizaciones", "link": "testimonios4.html" }
+      ],
+      "en": [
+        { "text": "User Reviews", "link": "testimonios1.html" },
+        { "text": "Specific Use Cases", "link": "testimonios2.html" },
+        { "text": "Demonstration Videos", "link": "testimonios3.html" },
+        { "text": "Update History", "link": "testimonios4.html" }
+      ]
+    },
+    "menu6": {
+      "es": [
+        { "text": "Contacto con el soporte técnico", "link": "soporte1.html" },
+        { "text": "FAQs del producto", "link": "soporte2.html" },
+        { "text": "Resolución de problemas comunes", "link": "soporte3.html" },
+        { "text": "Manuales descargables", "link": "soporte4.html" }
+      ],
+      "en": [
+        { "text": "Technical Support Contact", "link": "soporte1.html" },
+        { "text": "Product FAQs", "link": "soporte2.html" },
+        { "text": "Common Issue Resolution", "link": "soporte3.html" },
+        { "text": "Downloadable Manuals", "link": "soporte4.html" }
+      ]
+    },
+    "menu7": {
+      "es": [
+        { "text": "Ofertas y descuentos", "link": "promociones1.html" },
+        { "text": "Sorteos para nuevos productos", "link": "promociones2.html" },
+        { "text": "Ventas especiales", "link": "promociones3.html" },
+        { "text": "Recompensas por participación", "link": "promociones4.html" }
+      ],
+      "en": [
+        { "text": "Offers and Discounts", "link": "promociones1.html" },
+        { "text": "Raffles for New Products", "link": "promociones2.html" },
+        { "text": "Special Sales", "link": "promociones3.html" },
+        { "text": "Participation Rewards", "link": "promociones4.html" }
+      ]
+    },
+    "menu8": {
+      "es": [
+        { "text": "Redes sociales", "link": "contacto1.html" },
+        { "text": "Formulario de contacto", "link": "contacto2.html" },
+        { "text": "Atención al cliente", "link": "contacto3.html" },
+        { "text": "Feedback y sugerencias", "link": "contacto4.html" }
+      ],
+      "en": [
+        { "text": "Social Media", "link": "contacto1.html" },
+        { "text": "Contact Form", "link": "contacto2.html" },
+        { "text": "Customer Service", "link": "contacto3.html" },
+        { "text": "Feedback and Suggestions", "link": "contacto4.html" }
+      ]
+    }
+    }
+  }

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recompensas por Participación</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: #b2b4b0;
+        }
+        .logo {
+            height: 60px;
+            margin: 0 150px;
+            border-radius: 50%; 
+           
+               
+        }
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+    </style>
+    </head>
+    <body>
+    
+    <!-- Encabezado -->
+    <header>
+    <img src="IMG6.jpg" alt="Logo 1" class="logo">
+    <div class="company-name">Evaluación de un producto tecnológico</div>
+    <img src="IMG6.jpg" alt="Logo 2" class="logo">
+    </header>
+    
+     <!-- Carrusel con Bootstrap -->
+     <div id="carouselExample" class="carousel slide mt-6" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagenes/img14.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Primera Imagen">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Primer Slide</h5>
+            <p>Descripción de la primera imagen.</p>
+          </div>
+        </div>
+        
+        
+      </div>
+      
+    </div>
+    
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Menú Principal</a>
+            <a ><nav class="nav nav-pills justify-content-center mt-4"  id="menuItems"></nav></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-3">
+      <!-- Selector de idioma -->
+      <div class="d-flex justify-content-end">
+        
+        <label for="languageSelect" class="me-2">Idioma:</label>
+        <select id="languageSelect" class="form-select form-select-sm w-auto">
+          <option value="es" selected>Español</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+  
+      <!-- Menú Horizontal -->
+     
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      async function loadMenu(menuId, language) {
+        const response = await fetch('menu.json');
+        const data = await response.json();
+        const menuItems = document.getElementById('menuItems');
+        menuItems.innerHTML = '';
+        data.menus[menuId][language].forEach(item => {
+          const a = document.createElement('a');
+          a.className = 'nav-link';
+          a.href = item.link;
+          a.textContent = item.text;
+          menuItems.appendChild(a);
+        });
+      }
+  
+      document.getElementById('languageSelect').addEventListener('change', (event) => {
+        loadMenu('menu7', event.target.value);
+      });
+  
+      loadMenu('menu7', 'es');
+    </script>
+
+
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Recompensas por Participación</h1>
+
+        <!-- Lista de Recompensas -->
+        <div class="row" id="recompensasLista"></div>
+
+        <!-- Formulario para Reclamar Recompensa -->
+        <div class="card mt-5">
+            <div class="card-body">
+                <h4 class="card-title">Reclama tu Recompensa</h4>
+                <form id="reclamarForm">
+                    <div class="mb-3">
+                        <label for="nombreUsuario" class="form-label">Nombre Completo</label>
+                        <input type="text" class="form-control" id="nombreUsuario" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correoUsuario" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="correoUsuario" placeholder="Ingresa tu correo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recompensaSeleccionada" class="form-label">Selecciona una Recompensa</label>
+                        <select class="form-select" id="recompensaSeleccionada" required>
+                            <!-- Opciones se llenan dinámicamente -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Reclamar Recompensa</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmacionModalLabel">¡Recompensa Reclamada!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="mensajeConfirmacion"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script para manejar JSON y funcionalidad -->
+    <script>
+        // JSON con recompensas disponibles
+        const recompensas = [
+            {
+                "id": 1,
+                "nombre": "Descuento del 20%",
+                "descripcion": "Obtén un 20% de descuento en tu próxima compra.",
+                "imagen": "imagenes/img23.jpg"
+            },
+            {
+                "id": 2,
+                "nombre": "Envío Gratis",
+                "descripcion": "Disfruta del envío gratis en tu próxima compra.",
+                "imagen": "imagenes/img24.jpg"
+            },
+            {
+                "id": 3,
+                "nombre": "Cupón de $10",
+                "descripcion": "Recibe un cupón de $10 para usar en nuestra tienda.",
+                "imagen": "imagenes/img25.jpg"
+            }
+        ];
+
+        // Mostrar recompensas en la lista
+        const recompensasLista = document.getElementById("recompensasLista");
+        const recompensaSeleccionada = document.getElementById("recompensaSeleccionada");
+
+        recompensas.forEach(recompensa => {
+            // Crear tarjetas para las recompensas
+            const recompensaCard = `
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="${recompensa.imagen}" class="card-img-top" alt="${recompensa.nombre}">
+                        <div class="card-body">
+                            <h5 class="card-title">${recompensa.nombre}</h5>
+                            <p class="card-text">${recompensa.descripcion}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            recompensasLista.innerHTML += recompensaCard;
+
+            // Agregar opciones al selector del formulario
+            const opcion = `<option value="${recompensa.nombre}">${recompensa.nombre}</option>`;
+            recompensaSeleccionada.innerHTML += opcion;
+        });
+
+        // Manejar el formulario de reclamar recompensa
+        const reclamarForm = document.getElementById("reclamarForm");
+        reclamarForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const nombre = document.getElementById("nombreUsuario").value;
+            const correo = document.getElementById("correoUsuario").value;
+            const recompensa = document.getElementById("recompensaSeleccionada").value;
+
+            const mensaje = `
+                ¡Gracias, ${nombre}!
+                <br>
+                Has reclamado la recompensa: <strong>${recompensa}</strong>.
+                <br>
+                Te enviaremos más detalles a tu correo: <strong>${correo}</strong>.
+            `;
+
+            document.getElementById("mensajeConfirmacion").innerHTML = mensaje;
+
+            const modal = new bootstrap.Modal(document.getElementById("confirmacionModal"));
+            modal.show();
+
+            // Limpiar el formulario
+            reclamarForm.reset();
+        });
+    </script>
+
+    <!-- Pie de página -->
+<footer class="bg-dark text-white mt-5 py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Información de la empresa -->
+            <div class="col-md-6">
+                <h5>Sobre Nosotros</h5>
+                <p>
+                    Somos una empresa dedicada a ofrecer productos innovadores y de alta calidad. 
+                    Nuestra misión es mejorar la vida de nuestros clientes con soluciones prácticas y accesibles.
+                </p>
+            </div>
+  
+            <!-- Enlaces a Redes Sociales con Iconos -->
+            <div class="col-md-6">
+                <h5>Redes Sociales</h5>
+                <ul class="list-unstyled d-flex">
+                    <li class="me-3">
+                        <a href="https://facebook.com" class="text-white" target="_blank">
+                            <i class="bi bi-facebook" style="font-size: 2rem;"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li class="me-3">
+                        <a href="https://twitter.com" class="text-white" target="_blank">
+                            <i class="bi bi-twitter" style="font-size: 2rem;"></i>
+                            Twitter
+                        </a>
+                    </li>
+                    <li class="me-3">
+                        <a href="https://instagram.com" class="text-white" target="_blank">
+                            <i class="bi bi-instagram" style="font-size: 2rem;"></i>
+                            Instagram
+                        </a>
+                    </li>
+                   <li class="me-3">
+                     <a href="https://youtube.com" class="text-white" target="_blank">
+                        <i class="bi bi-youtube" style="font-size: 2rem;"></i>
+                        YouTube
+                    </a>
+                </li>
+                </ul>
+            </div>
+        </div>
+  
+        <!-- Información adicional -->
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <p>&copy; 2025 Empresa XYZ. Todos los derechos reservados.</p>
+                <p><a href="privacy-policy.html" class="text-white">Política de privacidad</a> | <a href="terms-of-service.html" class="text-white">Términos de servicio</a></p>
+            </div>
+        </div>
+    </div>
+  </footer>
+</body>
+</html>

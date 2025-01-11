@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución de Problemas Comunes de Productos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: #b2b4b0;
+        }
+        .logo {
+            height: 60px;
+            margin: 0 150px;
+            border-radius: 50%; 
+           
+               
+        }
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+    </style>
+    </head>
+    <body>
+    
+    <!-- Encabezado -->
+    <header>
+    <img src="IMG6.jpg" alt="Logo 1" class="logo">
+    <div class="company-name">Evaluación de un producto tecnológico</div>
+    <img src="IMG6.jpg" alt="Logo 2" class="logo">
+    </header>
+    
+     <!-- Carrusel con Bootstrap -->
+     <div id="carouselExample" class="carousel slide mt-6" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagenes/img11.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Primera Imagen">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Primer Slide</h5>
+            <p>Descripción de la primera imagen.</p>
+          </div>
+        </div>
+        
+      
+      </div>
+      
+    </div>
+    
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Menú Principal</a>
+            <a ><nav class="nav nav-pills justify-content-center mt-4"  id="menuItems"></nav></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-3">
+      <!-- Selector de idioma -->
+      <div class="d-flex justify-content-end">
+        
+        <label for="languageSelect" class="me-2">Idioma:</label>
+        <select id="languageSelect" class="form-select form-select-sm w-auto">
+          <option value="es" selected>Español</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+  
+      <!-- Menú Horizontal -->
+     
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      async function loadMenu(menuId, language) {
+        const response = await fetch('menu.json');
+        const data = await response.json();
+        const menuItems = document.getElementById('menuItems');
+        menuItems.innerHTML = '';
+        data.menus[menuId][language].forEach(item => {
+          const a = document.createElement('a');
+          a.className = 'nav-link';
+          a.href = item.link;
+          a.textContent = item.text;
+          menuItems.appendChild(a);
+        });
+      }
+  
+      document.getElementById('languageSelect').addEventListener('change', (event) => {
+        loadMenu('menu6', event.target.value);
+      });
+  
+      loadMenu('menu6', 'es');
+    </script>
+
+
+    <div class="container my-5">
+        <h1 class="text-center">Resolución de Problemas Comunes de Productos</h1>
+        <div class="row" id="productosContainer">
+            <!-- Los problemas se cargarán dinámicamente aquí -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script para manejar el JSON y mostrar los problemas -->
+    <script>
+        // Datos en formato JSON
+        const problemas = [
+            {
+                "id": 1,
+                "producto": "Celulares",
+                "problema": "La pantalla táctil no responde.",
+                "solucion": "Intenta reiniciar el dispositivo. Si el problema persiste, verifica si la pantalla está limpia y libre de humedad.",
+                "imagen": "imagenes/img4.jpg"
+            },
+            {
+                "id": 2,
+                "producto": "Laptop",
+                "problema": "El teclado no funciona.",
+                "solucion": "Asegúrate de que no haya suciedad o polvo debajo de las teclas. Si sigue sin funcionar, prueba reiniciar la laptop.",
+                "imagen": "imagenes/img2.jpg"
+            },
+            {
+                "id": 3,
+                "producto": "Auriculares",
+                "problema": "No se conecta al teléfono.",
+                "solucion": "Verifica que los auriculares estén en modo de emparejamiento. También asegúrate de que el Bluetooth del teléfono esté activado.",
+                "imagen": "imagenes/img3.jpg"
+            },
+            {
+                "id": 4,
+                "producto": "Cámara Digital",
+                "problema": "Las fotos salen borrosas.",
+                "solucion": "Asegúrate de que el lente esté limpio y que el enfoque esté correctamente ajustado. También verifica la configuración de la resolución.",
+                "imagen": "imagenes/img6.jpg"
+            }
+        ];
+
+        // Mostrar los problemas y soluciones en la página
+        const productosContainer = document.getElementById("productosContainer");
+
+        problemas.forEach(problema => {
+            const col = document.createElement("div");
+            col.classList.add("col-md-6", "col-lg-4", "mb-4");
+
+            col.innerHTML = `
+                <div class="card">
+                    <img src="${problema.imagen}" class="card-img-top" alt="${problema.producto}">
+                    <div class="card-body">
+                        <h5 class="card-title">${problema.producto}</h5>
+                        <p class="card-text"><strong>Problema:</strong> ${problema.problema}</p>
+                        <button class="btn btn-primary" onclick="mostrarSolucion(${problema.id})">Mostrar solución</button>
+                        <p id="solucion-${problema.id}" class="mt-3 d-none"><strong>Solución:</strong> ${problema.solucion}</p>
+                    </div>
+                </div>
+            `;
+            productosContainer.appendChild(col);
+        });
+
+        // Función para mostrar la solución
+        function mostrarSolucion(id) {
+            const solucionElement = document.getElementById(`solucion-${id}`);
+            if (solucionElement.classList.contains('d-none')) {
+                solucionElement.classList.remove('d-none');
+            } else {
+                solucionElement.classList.add('d-none');
+            }
+        }
+    </script>
+
+    <!-- Pie de página -->
+<footer class="bg-dark text-white mt-5 py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Información de la empresa -->
+            <div class="col-md-6">
+                <h5>Sobre Nosotros</h5>
+                <p>
+                    Somos una empresa dedicada a ofrecer productos innovadores y de alta calidad. 
+                    Nuestra misión es mejorar la vida de nuestros clientes con soluciones prácticas y accesibles.
+                </p>
+            </div>
+  
+            <!-- Enlaces a Redes Sociales con Iconos -->
+            <div class="col-md-6">
+                <h5>Redes Sociales</h5>
+                <ul class="list-unstyled d-flex">
+                    <li class="me-3">
+                        <a href="https://facebook.com" class="text-white" target="_blank">
+                            <i class="bi bi-facebook" style="font-size: 2rem;"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li class="me-3">
+                        <a href="https://twitter.com" class="text-white" target="_blank">
+                            <i class="bi bi-twitter" style="font-size: 2rem;"></i>
+                            Twitter
+                        </a>
+                    </li>
+                    <li class="me-3">
+                        <a href="https://instagram.com" class="text-white" target="_blank">
+                            <i class="bi bi-instagram" style="font-size: 2rem;"></i>
+                            Instagram
+                        </a>
+                    </li>
+                   <li class="me-3">
+                     <a href="https://youtube.com" class="text-white" target="_blank">
+                        <i class="bi bi-youtube" style="font-size: 2rem;"></i>
+                        YouTube
+                    </a>
+                </li>
+                </ul>
+            </div>
+        </div>
+  
+        <!-- Información adicional -->
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <p>&copy; 2025 Empresa XYZ. Todos los derechos reservados.</p>
+                <p><a href="privacy-policy.html" class="text-white">Política de privacidad</a> | <a href="terms-of-service.html" class="text-white">Términos de servicio</a></p>
+            </div>
+        </div>
+    </div>
+  </footer>
+</body>
+</html>

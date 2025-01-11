@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <opcion id="inicio">
+        <submenu>
+            <item id="infoProducto" link="inicio1.html" />
+            <item id="beneficiosEvaluacion" link="inicio2.html"/>
+            <item id="instruccionesParticipar" link="inicio3.html"/>
+            <item id="preguntasFrecuentes" link="inicio4.html"/>
+        </submenu>
+    </opcion>
+    <opcion id="formularioEvaluacion">
+        <submenu>
+            <item id="calificacionCaracteristicas" link="formulario1.html"/>
+            <item id="seccionComentarios" link="formulario2.html"/>
+            <item id="subirMedia" link="formulario3.html"/>
+            <item id="confirmacionEvaluacion" link="formulario4.html"/>
+        </submenu>
+    </opcion>
+    <opcion id="resultadosEstadisticas">
+        <submenu>
+            <item id="promedioValoraciones" link="estadistica1.html"/>
+            <item id="comparacionProductos" link="estadistica2.html"/>
+            <item id="graficosVisualizaciones" link="estadistica3.html"/>
+            <item id="recomendacionesDatos" link="estadistica4.html"/>
+        </submenu>
+    </opcion>
+    <opcion id="recursos">
+        <submenu>
+            <item id="guiasProducto" link="recursos1.html"/>
+            <item id="tutorialesAvanzados" link="recursos2.html"/>
+            <item id="consejosMantenimiento" link="recursos3.html"/>
+            <item id="comparativaProductos" link="recursos4.html"/>
+        </submenu>
+    </opcion>
+    <opcion id="testimonios">
+        <submenu>
+            <item id="opinionesUsuarios" link="testimonios1.html"/>
+            <item id="casosUso" link="testimonios2.html"/>
+            <item id="videosDemostracion" link="testimonios3.html"/>
+            <item id="historialActualizaciones" link="testimonios4.html"/>
+        </submenu>
+    </opcion>
+    <opcion id="soporte">
+        <submenu>
+            <item id="contactoSoporte" link="soporte1.html"/>
+            <item id="faqsProducto" link="soporte2.html"/>
+            <item id="resolucionProblemas" link="soporte3.html"/>
+            <item id="manualesDescargables" link="soporte4.html"/>
+        </submenu>
+    </opcion>
+    <opcion id="promociones">
+        <submenu>
+            <item id="ofertasDescuentos" link="promociones1.html"/>
+            <item id="sorteosProductos" link="promociones2.html"/>
+            <item id="ventasEspeciales" link="promociones3.html"/>
+            <item id="recompensasParticipacion" link="promociones4.html"/>
+        </submenu>
+    </opcion>
+    <opcion id="contacto">
+        <submenu>
+            <item id="redesSociales" link="contacto1.html"/>
+            <item id="formularioContacto" link="contacto2.html"/>
+            <item id="atencionCliente" link="contacto3.html"/>
+            <item id="feedbackSugerencias" link="contacto4.html"/>
+        </submenu>
+    </opcion>
+</menu>

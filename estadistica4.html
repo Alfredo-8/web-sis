@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recomendaciones Basadas en Datos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: #b2b4b0;
+        }
+        .logo {
+            height: 60px;
+            margin: 0 150px;
+            border-radius: 50%; 
+           
+               
+        }
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+       
+    </style>
+    </head>
+    <body>
+    
+    <!-- Encabezado -->
+    <header>
+    <img src="IMG6.jpg" alt="Logo 1" class="logo">
+    <div class="company-name">Evaluación de un producto tecnológico</div>
+    <img src="IMG6.jpg" alt="Logo 2" class="logo">
+    </header>
+    
+     <!-- Carrusel con Bootstrap -->
+     <div id="carouselExample" class="carousel slide mt-6" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagenes/img19.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Primera Imagen">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Primer Slide</h5>
+            <p>Descripción de la primera imagen.</p>
+          </div>
+        </div>
+        
+        
+      </div>
+      
+    </div>
+    
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Menú Principal</a>
+          <a ><nav class="nav nav-pills justify-content-center mt-4"  id="menuItems"></nav></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              
+          </div>
+      </div>
+  </nav>
+  <div class="container mt-3">
+    <!-- Selector de idioma -->
+    <div class="d-flex justify-content-end">
+      
+      <label for="languageSelect" class="me-2">Idioma:</label>
+      <select id="languageSelect" class="form-select form-select-sm w-auto">
+        <option value="es" selected>Español</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
+    <!-- Menú Horizontal -->
+   
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    async function loadMenu(menuId, language) {
+      const response = await fetch('menu.json');
+      const data = await response.json();
+      const menuItems = document.getElementById('menuItems');
+      menuItems.innerHTML = '';
+      data.menus[menuId][language].forEach(item => {
+        const a = document.createElement('a');
+        a.className = 'nav-link';
+        a.href = item.link;
+        a.textContent = item.text;
+        menuItems.appendChild(a);
+      });
+    }
+
+    document.getElementById('languageSelect').addEventListener('change', (event) => {
+      loadMenu('menu3', event.target.value);
+    });
+
+    loadMenu('menu3', 'es');
+  </script>
+
+
+  <div class="container mt-5">
+    <h1 class="text-center">Recomendaciones Basadas en Datos</h1>
+    <p class="text-center">Aquí puedes ver productos tecnológicos recomendados según sus características.</p>
+
+    <!-- Tabla de Recomendaciones -->
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Calidad</th>
+          <th scope="col">Diseño</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Recomendación</th>
+        </tr>
+      </thead>
+      <tbody id="recommendationsTable">
+        <!-- Datos generados dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Script para manejar JSON y recomendaciones -->
+  <script>
+    // Datos simulados en JSON
+    const products = [
+      { name: "Computadora", quality: 4.5, design: 4.7, price: 500 },
+      { name: "Celulares", quality: 3.8, design: 4.0, price: 300 },
+      { name: "Camaras", quality: 4.9, design: 4.8, price: 200 },
+      { name: "Tablets", quality: 3.5, design: 4.2, price: 250 },
+      { name: "Auriculares", quality: 4.2, design: 4.5, price: 20 }
+    ];
+
+    // Función para calcular la recomendación basada en calidad y diseño
+    function calculateRecommendation(product) {
+      const averageScore = (product.quality + product.design) / 2;
+      if (averageScore >= 4.5) return "Altamente Recomendado";
+      if (averageScore >= 4.0) return "Recomendado";
+      return "Promedio";
+    }
+
+    // Función para cargar datos en la tabla
+    function loadRecommendations() {
+      const tableBody = document.getElementById("recommendationsTable");
+      products.forEach(product => {
+        const recommendation = calculateRecommendation(product);
+
+        // Crear fila para la tabla
+        const row = `
+          <tr>
+            <td>${product.name}</td>
+            <td>${product.quality}</td>
+            <td>${product.design}</td>
+            <td>$${product.price}</td>
+            <td>${recommendation}</td>
+          </tr>
+        `;
+        tableBody.innerHTML += row;
+      });
+    }
+
+    // Cargar las recomendaciones al cargar la página
+    window.onload = loadRecommendations;
+  </script>
+
+  <!-- Pie de página -->
+<footer class="bg-dark text-white mt-5 py-4">
+  <div class="container">
+      <div class="row">
+          <!-- Información de la empresa -->
+          <div class="col-md-6">
+              <h5>Sobre Nosotros</h5>
+              <p>
+                  Somos una empresa dedicada a ofrecer productos innovadores y de alta calidad. 
+                  Nuestra misión es mejorar la vida de nuestros clientes con soluciones prácticas y accesibles.
+              </p>
+          </div>
+
+          <!-- Enlaces a Redes Sociales con Iconos -->
+          <div class="col-md-6">
+              <h5>Redes Sociales</h5>
+              <ul class="list-unstyled d-flex">
+                  <li class="me-3">
+                      <a href="https://facebook.com" class="text-white" target="_blank">
+                          <i class="bi bi-facebook" style="font-size: 2rem;"></i>
+                          Facebook
+                      </a>
+                  </li>
+                  <li class="me-3">
+                      <a href="https://twitter.com" class="text-white" target="_blank">
+                          <i class="bi bi-twitter" style="font-size: 2rem;"></i>
+                          Twitter
+                      </a>
+                  </li>
+                  <li class="me-3">
+                      <a href="https://instagram.com" class="text-white" target="_blank">
+                          <i class="bi bi-instagram" style="font-size: 2rem;"></i>
+                          Instagram
+                      </a>
+                  </li>
+                 <li class="me-3">
+                   <a href="https://youtube.com" class="text-white" target="_blank">
+                      <i class="bi bi-youtube" style="font-size: 2rem;"></i>
+                      YouTube
+                  </a>
+              </li>
+              </ul>
+          </div>
+      </div>
+
+      <!-- Información adicional -->
+      <div class="row">
+          <div class="col-12 text-center mt-4">
+              <p>&copy; 2025 Empresa XYZ. Todos los derechos reservados.</p>
+              <p><a href="privacy-policy.html" class="text-white">Política de privacidad</a> | <a href="terms-of-service.html" class="text-white">Términos de servicio</a></p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<internacionall>
+    <idioma codigo="es">
+        <texto id="inicio">Inicio</texto>
+        <texto id="infoProducto">Información sobre el producto</texto>
+        <texto id="beneficiosEvaluacion">Beneficios de evaluar productos tecnológicos</texto>
+        <texto id="instruccionesParticipar">Instrucciones para participar</texto>
+        <texto id="preguntasFrecuentes">Preguntas frecuentes</texto>
+        <texto id="formularioEvaluacion">Formulario de Evaluación</texto>
+        <texto id="calificacionCaracteristicas">Calificación de características</texto>
+        <texto id="seccionComentarios">Sección de comentarios</texto>
+        <texto id="subirMedia">Subir fotos o videos</texto>
+        <texto id="confirmacionEvaluacion">Confirmación de evaluación</texto>
+        <texto id="resultadosEstadisticas">Resultados y Estadísticas</texto>
+        <texto id="promedioValoraciones">Promedio de las valoraciones</texto>
+        <texto id="comparacionProductos">Comparación con otros productos</texto>
+        <texto id="graficosVisualizaciones">Gráficos y visualizaciones</texto>
+        <texto id="recomendacionesDatos">Recomendaciones basadas en datos</texto>
+        <texto id="recursos">Recursos</texto>
+        <texto id="guiasProducto">Guías para usar el producto</texto>
+        <texto id="tutorialesAvanzados">Tutoriales de características avanzadas</texto>
+        <texto id="consejosMantenimiento">Consejos de mantenimiento</texto>
+        <texto id="comparativaProductos">Comparativa con productos similares</texto>
+        <texto id="testimonios">Testimonios</texto>
+        <texto id="opinionesUsuarios">Opiniones de otros usuarios</texto>
+        <texto id="casosUso">Casos de uso específicos</texto>
+        <texto id="videosDemostracion">Videos de demostración</texto>
+        <texto id="historialActualizaciones">Historial de actualizaciones</texto>
+        <texto id="soporte">Soporte</texto>
+        <texto id="contactoSoporte">Contacto con el soporte técnico</texto>
+        <texto id="faqsProducto">FAQs del producto</texto>
+        <texto id="resolucionProblemas">Resolución de problemas comunes</texto>
+        <texto id="manualesDescargables">Manuales descargables</texto>
+        <texto id="promociones">Promociones</texto>
+        <texto id="ofertasDescuentos">Ofertas y descuentos</texto>
+        <texto id="sorteosProductos">Sorteos para nuevos productos</texto>
+        <texto id="ventasEspeciales">Ventas especiales</texto>
+        <texto id="recompensasParticipacion">Recompensas por participación</texto>
+        <texto id="contacto">Contacto</texto>
+        <texto id="redesSociales">Redes sociales</texto>
+        <texto id="formularioContacto">Formulario de contacto</texto>
+        <texto id="atencionCliente">Atención al cliente</texto>
+        <texto id="feedbackSugerencias">Feedback y sugerencias</texto>
+        
+        <!-- Añadir traducciones para el resto de los elementos -->
+    </idioma>
+    <idioma codigo="en">
+        <texto id="inicio">Home</texto>
+        <texto id="infoProducto">Product Information</texto>
+        <texto id="beneficiosEvaluacion">Benefits of Evaluating Tech Products</texto>
+        <texto id="instruccionesParticipar">Instructions to Participate</texto>
+        <texto id="preguntasFrecuentes">Frequently Asked Questions</texto>
+        <texto id="formularioEvaluacion">Evaluation Form</texto>
+        <texto id="calificacionCaracteristicas">Feature Rating</texto>
+        <texto id="seccionComentarios">Comments Section</texto>
+        <texto id="subirMedia">Upload Photos or Videos</texto>
+        <texto id="confirmacionEvaluacion">Evaluation Confirmation</texto>
+        <texto id="resultadosEstadisticas">Results and Statistics</texto>
+        <texto id="promedioValoraciones">Average ratings</texto>
+        <texto id="comparacionProductos">Comparison with other products</texto>
+        <texto id="graficosVisualizaciones">Charts and visualizations</texto>
+        <texto id="recomendacionesDatos">Data-driven recommendations</texto>
+        <texto id="recursos">Resources</texto>
+        <texto id="guiasProducto">Guides to use the product</texto>
+        <texto id="tutorialesAvanzados">Advanced Features Tutorials</texto>
+        <texto id="consejosMantenimiento">Maintenance tips</texto>
+        <texto id="comparativaProductos">Comparison with similar products</texto>
+        <texto id="testimonios">Testimonials</texto>
+        <texto id="opinionesUsuarios">Opinions of other users</texto>
+        <texto id="casosUso">Specific use cases</texto>
+        <texto id="videosDemostracion">Demo Videos</texto>
+        <texto id="historialActualizaciones">Update history</texto>
+        <texto id="soporte">Medium</texto>
+        <texto id="contactoSoporte">Contact technical support</texto>
+        <texto id="faqsProducto">FAQs del producto</texto>
+        <texto id="resolucionProblemas">Product FAQs</texto>
+        <texto id="manualesDescargables">Downloadable manuals</texto>
+        <texto id="promociones">Promotions</texto>
+        <texto id="ofertasDescuentos">Offers and discounts</texto>
+        <texto id="sorteosProductos">Giveaways for new products</texto>
+        <texto id="ventasEspeciales">Special sales</texto>
+        <texto id="recompensasParticipacion">Participation rewards</texto>
+        <texto id="contacto">Contact</texto>
+        <texto id="redesSociales">Social networks</texto>
+        <texto id="formularioContacto">Contact form</texto>
+        <texto id="atencionCliente">Customer service</texto>
+        <texto id="feedbackSugerencias">Feedback and suggestions</texto>
+
+
+        <!-- Añadir traducciones para el resto de los elementos -->
+    </idioma>
+    
+</internacionall>
